@@ -13,6 +13,14 @@ const player1El = document.querySelector(".player--1");
 let activePlayer = 0;
 
 
+//details of the game
+alert(` 1.To win the game your score should be greater or equal to 50
+        2.If you roll out 1 than your current score will be 0(zero)
+        3.click the hold button to add the current score to your main score.
+        4.Click the new game button to restart the game.activePlayer
+        5.Check your luck with our game...!!All the very best`);
+
+
 //for playing audio file
 var changePlayer = new Audio("playerchange.mp3");
 var win = new Audio("won.mp3");
@@ -138,7 +146,7 @@ btnHold.addEventListener("click",function(){
     console.log(score[activePlayer]);
     
    //2.check whether main score is atleat 100
-    if(score[activePlayer]>=20){
+    if(score[activePlayer]>=50){
         //Finish the game
         background.pause();
         win.play();
