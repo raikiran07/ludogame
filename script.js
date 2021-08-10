@@ -10,6 +10,8 @@ const current1El = document.getElementById("current--1");
 //trying to select the player
 const player0El = document.querySelector(".player--0");
 const player1El = document.querySelector(".player--1");
+const current0 = document.querySelector(".player0");
+const current1 = document.querySelector(".player1");
 let activePlayer = 0;
 
 
@@ -85,6 +87,8 @@ const switchPlayer = function(){
         currentScore = 0;
         player0El.classList.toggle("player--active");
         player1El.classList.toggle("player--active");
+        current0.classList.toggle("active");
+        current1.classList.toggle("active");
         activePlayer = activePlayer === 0 ? 1 : 0;
 }
 
@@ -153,7 +157,11 @@ btnHold.addEventListener("click",function(){
         playing = false;
         document.querySelector(`.player--${activePlayer}`).classList.add("player--winner");
         document.querySelector(`.player--${activePlayer}`).classList.remove("player--active");
+        current0.classList.remove("active");
+        current1.classList.remove("active");
+        
         diceEl.classList.add("hidden");
+        alert(`player${activePlayer+1} is the winner!!`);
         
     }
     else{

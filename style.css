@@ -64,7 +64,13 @@ main {
 }
 
 .player--active {
-  background-color: rgba(255, 255, 255, 0.4);
+/*  background-color: rgba(255, 255, 255, 0.4);*/
+    background-color:#daeb28;
+    
+/*  border-top: 10px solid black;*/
+}
+.active{
+    border:4px solid black;
 }
 .player--active .name {
   font-weight: 700;
@@ -115,7 +121,7 @@ main {
   transition: all 0.2s;
 
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #07edce;
   backdrop-filter: blur(10px);
 
   padding: 0.7rem 2.5rem;
@@ -131,9 +137,11 @@ main {
 
 .btn--new {
   top: 4rem;
+  background-color:
 }
 .btn--roll {
   top: 39.3rem;
+  
 }
 .btn--hold {
   top: 46.1rem;
@@ -147,7 +155,9 @@ main {
 .btn:focus {
   outline: none;
 }
-
+.btn:hover{
+    border:2px solid black;
+}
 .dice {
   position: absolute;
   left: 50%;
