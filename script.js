@@ -24,14 +24,14 @@ alert(` 1.To win the game your score should be greater or equal to 50
 
 
 //for playing audio file
-var changePlayer = new Audio("playerchange.mp3");
-var win = new Audio("won.mp3");
-var roll = new Audio('roll.mp3');
-var background = new Audio("background.mp3");
-var collect = new Audio("collect.mp3");
-var hold = new Audio("hold.mp3");
+var changePlayer = new Audio("./audio/playerchange.mp3");
+var win = new Audio("./audio/won.mp3");
+var roll = new Audio('./audio/roll.mp3');
+var background = new Audio("./audio/background.mp3");
+var collect = new Audio("./audio/collect.mp3");
+var hold = new Audio("./audio/hold.mp3");
 
-var clickNew = new Audio("click.mp3");
+var clickNew = new Audio("./audio/click.mp3");
 
 //state variable
 let playing = true;
@@ -102,7 +102,7 @@ btnRoll.addEventListener("click",function(){
     
     //2.display the dice
     diceEl.classList.remove("hidden");
-    diceEl.src = `dice-${dice}.png`;
+    diceEl.src = `./images/dice-${dice}.png`;
     roll.play();
     
     //playing the sound instantly
@@ -207,6 +207,8 @@ btnNew.addEventListener("click",function(){
    
     
 })
+
+
 
 
 
