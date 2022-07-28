@@ -1,0 +1,76 @@
+<head>
+    ...
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <style>
+      /* override styles here */
+      .notie-container {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    
+<div class="container">
+    <h1>Player1 : <span id="player1"></span></h1>
+    <h1>Player2 : <span id="player2"></span></h1>
+    
+   
+</div>
+    <!-- Bottom of body -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+ 
+//  notie.input({
+//   text: 'Please enter your email:',
+//   submitText: 'Submit',
+//   cancelText: 'Cancel',
+//   cancelCallback: function (value) {
+//     notie.alert({ type: 3, text: 'You cancelled with this value: ' + value })
+//   },
+//   submitCallback: function (value) {
+//     notie.alert({ type: 1, text: 'You entered: ' + value })
+//   },
+//   value: 'jane@doe.com',
+//   type: 'email',
+//   placeholder: 'name@example.com'
+// })
+
+const p1 = document.getElementById("player1");
+const p2 = document.getElementById("player2");
+
+
+
+
+
+
+swal("Enter player1:", {
+  content: "input",
+})
+.then((value) => {
+  if(value=='' || value==null){
+    swal("You did not entered anything!");
+  }
+  else{
+    p01 = value;
+    swal("enter player2:",{
+        content:"input",
+    }).then((name)=>{
+        if(name=='' || name==null){
+    swal("You did not entered anything!");
+  }
+  else{
+    
+    p1.innerHTML = value;
+    p2.innerHTML = name;
+    console.log(value,name);
+    
+  }
+        
+    })
+  }
+});
+
+
+
+    </script>
+  </body>

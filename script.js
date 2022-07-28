@@ -20,12 +20,7 @@ const p2 = document.getElementById("name--1");
 
 
 
-//details of the game
-alert(` 1.To win the game your score should be greater or equal to 50
-        2.If you roll out 1 than your current score will be 0(zero)
-        3.click the hold button to add the current score to your main score.
-        4.Click the new game button to restart the game.activePlayer
-        5.Check your luck with our game...!!All the very best`);
+
 
 
 
@@ -53,23 +48,22 @@ let currentScore = 0;
 const diceEl = document.querySelector(".dice");
 //playing the background music
 
-//taking players name
-let player1Name;
-let player2Name;
-
-
-
-
-
-
 //start function
 const startGame = function(){
+  //details of the game
+
+  swal(` 1.To win the game your score should be greater or equal to 50
+        2.If you roll out 1 than your current score will be 0(zero)
+        3.click the hold button to add the current score to your main score.
+        4.Click the new game button to restart the game.activePlayer
+        5.Check your luck with our game...!!All the very best`)
+
 
   
 
     //showing the names of the players
-    p1.innerHTML = player1Name;
-    p2.innerHTML = player2Name;
+    // p1.innerHTML = player1Name;
+    // p2.innerHTML = player2Name;
 
     
      score0El.textContent = 0;
@@ -97,24 +91,35 @@ const startGame = function(){
     
     
 }
-//starting the game
-const takingPlayerNames = ()=>{
-  player1Name = prompt("Enter player1:");
-  player2Name = prompt("Enter player2:");
-  
-  if((player1Name !="" && player1Name != null) && (player2Name!="" && player2Name!=null)){
-    startGame();
-  
+
+
+// takingPlayerNames();
+
+//taking inputs using sweet alert box
+
+swal("Enter Player1:",{
+  content:"input",
+
+}).then(value=>{
+  if(value == ''){
+    p1.innerHTML = "Player1";
   }
   else{
-    takingPlayerNames();
+    p1.innerHTML = value;
+    swal("Enter Player2:",{
+      content:"input",
+    }).then(value=>{
+      if(value==''){
+        p2.innerHTML = "Player2";
+      }
+      else{
+        p2.innerHTML = value;
+        swal("Ready to Play!");
+        startGame();
+      }
+    })
   }
-  
-  
-  }
-
-takingPlayerNames();
-
+})
 
 //switching the active player
 const switchPlayer = function(){
@@ -200,7 +205,7 @@ btnHold.addEventListener("click",function(){
         // alert(`player${activePlayer+1} is the winner!!`);
         // console.log(document.querySelector(".player--winner").firstChild.innerHTML + " " + "is the winner!");
         // console.log("" + document.querySelector(".player--winner")..innerHTML);
-        alert(`${winner.toUpperCase()} is the winner!!`);
+        swal(`${winner.toUpperCase()} is the winner!!`);
         
     }
     else{
@@ -210,13 +215,7 @@ btnHold.addEventListener("click",function(){
         switchPlayer();
     }
    
-    
-    //if yes, finish the game with winner as the active player
-    
-    
-    //if No, switch the active player
-    
-  }
+}
         
     
     
@@ -225,18 +224,6 @@ btnHold.addEventListener("click",function(){
 
 
 ////new game button functionality
-//btnNew.addEventListener("click",function(){
-//console.log(activePlayer);
-//score0El.textContent = 0;
-//score1El.textContent = 0;
-//currentScore = 0;
-//diceEl.classList.add("hidden");
-//document.querySelector(`.player--${activePlayer}`).classList.remove("player--winner");
-//
-//    
-//})
-//
-//
 btnNew.addEventListener("click",function(){
     //starting score of players = 0
     clickNew.play();
