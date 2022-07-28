@@ -14,6 +14,11 @@ const current0 = document.querySelector(".player0");
 const current1 = document.querySelector(".player1");
 let activePlayer = 0;
 
+//grabbing the name of players
+const p1 = document.getElementById("name--0");
+const p2 = document.getElementById("name--1");
+
+
 
 //details of the game
 alert(` 1.To win the game your score should be greater or equal to 50
@@ -21,6 +26,7 @@ alert(` 1.To win the game your score should be greater or equal to 50
         3.click the hold button to add the current score to your main score.
         4.Click the new game button to restart the game.activePlayer
         5.Check your luck with our game...!!All the very best`);
+
 
 
 //for playing audio file
@@ -47,10 +53,24 @@ let currentScore = 0;
 const diceEl = document.querySelector(".dice");
 //playing the background music
 
+//taking players name
+let player1Name;
+let player2Name;
+
+
+
+
 
 
 //start function
 const startGame = function(){
+
+  
+
+    //showing the names of the players
+    p1.innerHTML = player1Name;
+    p2.innerHTML = player2Name;
+
     
      score0El.textContent = 0;
     score1El.textContent = 0;
@@ -78,7 +98,22 @@ const startGame = function(){
     
 }
 //starting the game
-startGame();
+const takingPlayerNames = ()=>{
+  player1Name = prompt("Enter player1:");
+  player2Name = prompt("Enter player2:");
+  
+  if((player1Name !="" && player1Name != null) && (player2Name!="" && player2Name!=null)){
+    startGame();
+  
+  }
+  else{
+    takingPlayerNames();
+  }
+  
+  
+  }
+
+takingPlayerNames();
 
 
 //switching the active player
@@ -161,7 +196,11 @@ btnHold.addEventListener("click",function(){
         current1.classList.remove("active");
         
         diceEl.classList.add("hidden");
-        alert(`player${activePlayer+1} is the winner!!`);
+        const winner = document.querySelector(".player--winner").children[0].innerHTML;
+        // alert(`player${activePlayer+1} is the winner!!`);
+        // console.log(document.querySelector(".player--winner").firstChild.innerHTML + " " + "is the winner!");
+        // console.log("" + document.querySelector(".player--winner")..innerHTML);
+        alert(`${winner.toUpperCase()} is the winner!!`);
         
     }
     else{
