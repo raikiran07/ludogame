@@ -55,7 +55,7 @@ const startGame = function(){
   swal(` 1.To win the game your score should be greater or equal to 50
         2.If you roll out 1 than your current score will be 0(zero)
         3.click the hold button to add the current score to your main score.
-        4.Click the new game button to restart the game.activePlayer
+        4.Click the new game button to restart the game.
         5.Check your luck with our game...!!All the very best`)
 
 
